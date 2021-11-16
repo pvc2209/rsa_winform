@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacHamCoBan", "CacHamCoBan\CacHamCoBan.csproj", "{9AE56CFE-545F-4484-977A-F27A932EF2B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RSA_APP", "RSA_APP\RSA_APP.csproj", "{D54E415A-FEAE-430B-B172-2EA144BA0221}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9AE56CFE-545F-4484-977A-F27A932EF2B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AE56CFE-545F-4484-977A-F27A932EF2B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AE56CFE-545F-4484-977A-F27A932EF2B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AE56CFE-545F-4484-977A-F27A932EF2B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D54E415A-FEAE-430B-B172-2EA144BA0221}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D54E415A-FEAE-430B-B172-2EA144BA0221}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D54E415A-FEAE-430B-B172-2EA144BA0221}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D54E415A-FEAE-430B-B172-2EA144BA0221}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A4F40B5C-4534-4C9C-826C-C464A69A6C52}
+	EndGlobalSection
+EndGlobal

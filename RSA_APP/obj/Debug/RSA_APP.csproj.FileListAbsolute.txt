@@ -1,0 +1,11 @@
+D:\ICTU\ky7\An toan va bao mat thong tin\RSA\RSA_APP\bin\Debug\RSA_APP.exe.config
+D:\ICTU\ky7\An toan va bao mat thong tin\RSA\RSA_APP\bin\Debug\RSA_APP.exe
+D:\ICTU\ky7\An toan va bao mat thong tin\RSA\RSA_APP\bin\Debug\RSA_APP.pdb
+D:\ICTU\ky7\An toan va bao mat thong tin\RSA\RSA_APP\obj\Debug\RSA_APP.csproj.AssemblyReference.cache
+D:\ICTU\ky7\An toan va bao mat thong tin\RSA\RSA_APP\obj\Debug\RSA_APP.csproj.SuggestedBindingRedirects.cache
+D:\ICTU\ky7\An toan va bao mat thong tin\RSA\RSA_APP\obj\Debug\RSA_APP.Properties.Resources.resources
+D:\ICTU\ky7\An toan va bao mat thong tin\RSA\RSA_APP\obj\Debug\RSA_APP.csproj.GenerateResource.cache
+D:\ICTU\ky7\An toan va bao mat thong tin\RSA\RSA_APP\obj\Debug\RSA_APP.csproj.CoreCompileInputs.cache
+D:\ICTU\ky7\An toan va bao mat thong tin\RSA\RSA_APP\obj\Debug\RSA_APP.exe
+D:\ICTU\ky7\An toan va bao mat thong tin\RSA\RSA_APP\obj\Debug\RSA_APP.pdb
+D:\ICTU\ky7\An toan va bao mat thong tin\RSA\RSA_APP\obj\Debug\RSA_APP.RSAFORM.resources
