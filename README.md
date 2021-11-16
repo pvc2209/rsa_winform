@@ -12,4 +12,4 @@ App cho phép mã hóa và giải mã RSA giữa 2 người A và người B tro
 - Ở phía người B sẽ điền bản rõ và bấm mã hóa. B sẽ dùng khóa công khai mà A vừa gửi để mã hóa
 - Người B tiến hành bấm gửi bản mã vừa có cho A
 - Người A sẽ nhận bản mã của B vừa gửi tới và dùng khóa bí mật để giải mã bản mã này và hiển thị ở trên bản rõ
-- Chúng ta có thể tiến hành tao tác ngược lại. 
+- Chúng ta có thể tiến hành thao tác ngược lại. 
