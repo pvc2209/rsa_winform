@@ -240,9 +240,9 @@
             this.label11.Location = new System.Drawing.Point(588, 448);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(36, 16);
+            this.label11.Size = new System.Drawing.Size(37, 16);
             this.label11.TabIndex = 4;
-            this.label11.Text = "B (B)";
+            this.label11.Text = "N (B)";
             // 
             // label12
             // 
@@ -273,9 +273,9 @@
             this.label14.Location = new System.Drawing.Point(589, 565);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(36, 16);
+            this.label14.Size = new System.Drawing.Size(37, 16);
             this.label14.TabIndex = 4;
-            this.label14.Text = "A (A)";
+            this.label14.Text = "N (A)";
             // 
             // txtEB
             // 
