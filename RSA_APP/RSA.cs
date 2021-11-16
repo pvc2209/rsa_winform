@@ -69,16 +69,21 @@ namespace RSA_APP
         public void TaoKhoaZ26()
         {
             // Chỉ có 2 số 2 và 3 nhân với nhau bằng 26
+            // p = 2 và q = 13 <=> n = p * q = 26 là điều bắt buộc
+            // vì nếu n < 26 thì sẽ có trường hợp bản rõ x lớn hơn n
+            // => mã hóa không chính xác
+            // còn nếu n > 26 thì bản mã có thể nằm ngoài phạm vi a-z
             int p = 2;
             int q = 13;
-            
-            TimEDN(p, q);
+
 
             // Với Z26 thì (e, n, d) chỉ có thể nhận các giá trị:
             // (e, n, d) = (1, 26, 1)   // bản mã trung với bản rõ
             // (e, n, d) = (5, 26, 5)
             // (e, n, d) = (7, 26, 7)
             // (e, n, d) = (11, 26, 11)
+
+            TimEDN(p, q);
         }
 
         public void TaoKhoaUnicode()
@@ -101,8 +106,8 @@ namespace RSA_APP
             // => mà điều kiện là bản rõ x < n (mà nếu x = 'ỹ' = 7929 rồi)
             // => n luôn luôn phải lớn hơn 7929
 
-            // => Điều kiện 7929 < n = p * q < UNICODE_LENGTH
-            while (p * q >= UNICODE_LENGTH || p * q <= 7929 || Math.Abs(p - q) < DIFF)
+            // => Điều kiện 7929 < n = p * q <= UNICODE_LENGTH
+            while (p * q > UNICODE_LENGTH || p * q <= 7929 || Math.Abs(p - q) < DIFF)
             {
                 q = primeNumbers[Helper.GetRandom(0, primeNumbers.Length)];
             }
@@ -125,7 +130,7 @@ namespace RSA_APP
                 // vì nếu e = 1 => d = 1 => bản mã giống hệt bản rõ
                 // Cần hỏi lại cô xem có nên để từ 1 hay ko?
 
-                MyE = Helper.GetRandom(2, phi);
+                MyE = Helper.GetRandom(1, phi);
             } while (Helper.UCLN(MyE, phi) != 1);
 
             // Bước 4: B tính d = e**-1 mod phi(n) bằng cách dùng thuật toán Euclid
@@ -197,53 +202,17 @@ namespace RSA_APP
             return x;
         }
 
-        public bool KiemTraKhoa()
-        {
-            // Cách đơn giản:
-            // n = p * q
-            // ta lặp trong mảng primeNumbers để tìm xem có p, q nào thỏa mãn hay ko?
-
-            List<int> listD = new List<int>();
-
-            for (int i = 0; i < primeNumbers.Length - 1; ++i)
-            {
-                for (int j = i + 1; j < primeNumbers.Length; ++j)
-                {
-                    int p = primeNumbers[i];
-                    int q = primeNumbers[j];
-
-                    //Console.WriteLine($"{p} * {q} = " + p * q);
-                    if (p * q == MyN)
-                    {
-                        Console.WriteLine("Hello");
-                        int phi_n = (p - 1) * (q - 1);
-                        if (Helper.UCLN(MyE, phi_n) == 1)
-                        {
-                            int d = Helper.Euclid(MyE, phi_n);
-                            listD.Add(d);
-                        }
-                    }
-                }
-            }
-
-            if (listD.Contains(MyD))
-            {
-                return true;
-            }
-
-            return false;
-        }
-
         public static bool KiemTraKhoa(int ke, int kn, int kd)
         {
             // Trường hợp check cho Z26 => kn = 26
-            // Chỉ có 3 trường hợp
+            // Chỉ có 4 trường hợp
+            // (e, n, d) = (1, 26, 1)
             // (e, n, d) = (5, 26, 5)
             // (e, n, d) = (7, 26, 7)
             // (e, n, d) = (11, 26, 11)
             if (kn == 26)
             {
-                if (ke == 5 && kd == 5 || ke == 7 && kd == 7 || ke == 11 && kd == 11)
+                if (ke == 1 && kd == 1 || ke == 5 && kd == 5 || ke == 7 && kd == 7 || ke == 11 && kd == 11)
                 {
                     return true;
                 }
@@ -252,7 +221,6 @@ namespace RSA_APP
                     return false;
                 }
             }
-
 
             // Cách đơn giản:
             // n = p * q

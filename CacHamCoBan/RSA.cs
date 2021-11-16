@@ -191,7 +191,7 @@ namespace CacHamCoBan
         }
 
         public bool KiemTraKhoa()
-        {
+        { 
             // Cách đơn giản:
             // n = p * q
             // ta lặp trong mảng primeNumbers để tìm xem có p, q nào thỏa mãn hay ko?

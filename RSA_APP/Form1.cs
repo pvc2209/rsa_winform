@@ -76,7 +76,7 @@ namespace RSA_APP
         {
             if (!CheckKhoaB())
             {
-                MessageBox.Show("Khóa công khai của B không hợp lệ!");
+                MessageBox.Show("Khóa công khai của B không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -91,7 +91,7 @@ namespace RSA_APP
                     int banRoA = int.Parse(txtBanRoA.Text);
                     if (banRoA >= personA.GetPartnerN)
                     {
-                        MessageBox.Show("Bản rõ phải nhỏ hơn n");
+                        MessageBox.Show("Bản rõ phải nhỏ hơn n!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
@@ -103,7 +103,7 @@ namespace RSA_APP
 
                     if (!Regex.IsMatch(banRoA, @"^[a-z]+$"))
                     {
-                        MessageBox.Show("Bản rõ A chỉ chứa các ký tự thuộc Z26");
+                        MessageBox.Show("Bản rõ A chỉ chứa các ký tự thuộc Z26!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
@@ -123,7 +123,7 @@ namespace RSA_APP
             }
             catch (FormatException ex)
             {
-                MessageBox.Show("Bản rõ A không hợp lệ");
+                MessageBox.Show("Bản rõ A không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -154,7 +154,7 @@ namespace RSA_APP
             }
             catch (FormatException ex)
             {
-                MessageBox.Show("Bản mã A không hợp lệ");
+                MessageBox.Show("Bản mã A không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -163,7 +163,7 @@ namespace RSA_APP
         {
             if (!CheckKhoaA())
             {
-                MessageBox.Show("Khóa công khai của A không hợp lệ!");
+                MessageBox.Show("Khóa công khai của A không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -179,7 +179,7 @@ namespace RSA_APP
 
                     if (banRoB >= personB.GetPartnerN)
                     {
-                        MessageBox.Show("Bản rõ phải nhỏ hơn n");
+                        MessageBox.Show("Bản rõ phải nhỏ hơn n", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
@@ -191,7 +191,7 @@ namespace RSA_APP
 
                     if (!Regex.IsMatch(banRoB, @"^[a-z]+$"))
                     {
-                        MessageBox.Show("Bản rõ B chỉ chứa các ký tự thuộc Z26");
+                        MessageBox.Show("Bản rõ B chỉ chứa các ký tự thuộc Z26!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
@@ -213,7 +213,7 @@ namespace RSA_APP
             }
             catch (FormatException ex)
             {
-                MessageBox.Show("Bản rõ B không hợp lệ");
+                MessageBox.Show("Bản rõ B không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -242,7 +242,7 @@ namespace RSA_APP
             }
             catch (FormatException ex)
             {
-                MessageBox.Show("Bản mã B không hợp lệ");
+                MessageBox.Show("Bản mã B không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -258,7 +258,7 @@ namespace RSA_APP
                 personA.MyE = 0;
                 txtEA.Text = "0";
 
-                MessageBox.Show("Error - Số quá lớn!");
+                MessageBox.Show("Error - Số quá lớn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (FormatException ex)
             {
@@ -280,7 +280,7 @@ namespace RSA_APP
                 personA.MyN = 0;
                 txtNA.Text = "0";
 
-                MessageBox.Show("Error - Số quá lớn!");
+                MessageBox.Show("Error - Số quá lớn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (FormatException ex)
             {
@@ -301,7 +301,7 @@ namespace RSA_APP
                 personA.MyD = 0;
                 txtDA.Text = "0";
 
-                MessageBox.Show("Error - Số quá lớn!");
+                MessageBox.Show("Error - Số quá lớn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (FormatException ex)
             {
@@ -320,7 +320,7 @@ namespace RSA_APP
                 personB.MyE = 0;
                 txtEB.Text = "0";
 
-                MessageBox.Show("Error - Số quá lớn!");
+                MessageBox.Show("Error - Số quá lớn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (FormatException ex)
             {
@@ -341,7 +341,7 @@ namespace RSA_APP
                 personB.MyN = 0;
                 txtNB.Text = "0";
 
-                MessageBox.Show("Error - Số quá lớn!");
+                MessageBox.Show("Error - Số quá lớn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (FormatException ex)
             {
@@ -362,7 +362,7 @@ namespace RSA_APP
                 personB.MyD = 0;
                 txtDB.Text = "0";
 
-                MessageBox.Show("Error - Số quá lớn!");
+                MessageBox.Show("Error - Số quá lớn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (FormatException ex)
             {
@@ -420,11 +420,11 @@ namespace RSA_APP
         {
             if (!CheckKhoaA())
             {
-                MessageBox.Show("Khóa không hợp lệ!");
+                MessageBox.Show("Khóa không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("Khóa hợp lệ!");
+                MessageBox.Show("Khóa hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -432,11 +432,11 @@ namespace RSA_APP
         {
             if (!CheckKhoaB())
             {
-                MessageBox.Show("Khóa không hợp lệ!");
+                MessageBox.Show("Khóa không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("Khóa hợp lệ!");
+                MessageBox.Show("Khóa hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
