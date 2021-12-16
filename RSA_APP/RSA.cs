@@ -68,7 +68,7 @@ namespace RSA_APP
 
         public void TaoKhoaZ26()
         {
-            // Chỉ có 2 số 2 và 3 nhân với nhau bằng 26
+            // Chỉ có 2 số 2 và 13 nhân với nhau bằng 26
             // p = 2 và q = 13 <=> n = p * q = 26 là điều bắt buộc
             // vì nếu n < 26 thì sẽ có trường hợp bản rõ x lớn hơn n
             // => mã hóa không chính xác
@@ -90,7 +90,7 @@ namespace RSA_APP
         {
             // Với n = UNICODE_LENGTH = 65536
             // ta không thể tìm được bất cứ cặp p, q nào là số nguyên tố
-            // thỏa mãn p * q = 143859 và p, q đều là số nguyên tố
+            // thỏa mãn p * q = 65536 và p, q đều là số nguyên tố
             // => Theo suy luận thì để mã hóa tiếng việt có dấu
             // chỉ cần n = p * q < UNICODE_LENGTH là được rồi
             // vì nếu chỉ dùng lại TaoKhoaNumber(); thì p * q = n có thể
@@ -202,55 +202,85 @@ namespace RSA_APP
             return x;
         }
 
+        //public static bool KiemTraKhoaCuiBap(int ke, int kn, int kd)
+        //{
+        //    // Trường hợp check cho Z26 => kn = 26
+        //    // Chỉ có 4 trường hợp
+        //    // (e, n, d) = (1, 26, 1)
+        //    // (e, n, d) = (5, 26, 5)
+        //    // (e, n, d) = (7, 26, 7)
+        //    // (e, n, d) = (11, 26, 11)
+        //    if (kn == 26)
+        //    {
+        //        if (ke == 1 && kd == 1 || ke == 5 && kd == 5 || ke == 7 && kd == 7 || ke == 11 && kd == 11)
+        //        {
+        //            return true;
+        //        }
+        //        else
+        //        {
+        //            return false;
+        //        }
+        //    }
+
+        //    // Cách đơn giản:
+        //    // n = p * q
+        //    // ta lặp trong mảng primeNumbers để tìm xem có p, q nào thỏa mãn hay ko?
+
+        //    List<int> listD = new List<int>();
+
+        //    for (int i = 0; i < primeNumbers.Length - 1; ++i)
+        //    {
+        //        for (int j = i + 1; j < primeNumbers.Length; ++j)
+        //        {
+        //            int p = primeNumbers[i];
+        //            int q = primeNumbers[j];
+
+        //            //Console.WriteLine($"{p} * {q} = " + p * q);
+        //            if (p * q == kn)
+        //            {
+        //                int phi_n = (p - 1) * (q - 1);
+        //                if (Helper.UCLN(ke, phi_n) == 1)
+        //                {
+        //                    int d = Helper.Euclid(ke, phi_n);
+        //                    listD.Add(d);
+        //                }
+        //            }
+        //        }
+        //    }
+
+        //    if (listD.Contains(kd))
+        //    {
+        //        return true;
+        //    }
+
+        //    return false;
+        //}
+
         public static bool KiemTraKhoa(int ke, int kn, int kd)
         {
-            // Trường hợp check cho Z26 => kn = 26
-            // Chỉ có 4 trường hợp
-            // (e, n, d) = (1, 26, 1)
-            // (e, n, d) = (5, 26, 5)
-            // (e, n, d) = (7, 26, 7)
-            // (e, n, d) = (11, 26, 11)
-            if (kn == 26)
+            int start = (int)Math.Sqrt(kn);
+
+            // Tính trước các số nguyên tố từ 2 đến n
+            bool[] check = Helper.SangNguyenTo(kn);
+
+            for (int p = start; p >= 2; p--)
             {
-                if (ke == 1 && kd == 1 || ke == 5 && kd == 5 || ke == 7 && kd == 7 || ke == 11 && kd == 11)
+                if (check[p])
                 {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
+                    int q = kn / p;
 
-            // Cách đơn giản:
-            // n = p * q
-            // ta lặp trong mảng primeNumbers để tìm xem có p, q nào thỏa mãn hay ko?
-
-            List<int> listD = new List<int>();
-
-            for (int i = 0; i < primeNumbers.Length - 1; ++i)
-            {
-                for (int j = i + 1; j < primeNumbers.Length; ++j)
-                {
-                    int p = primeNumbers[i];
-                    int q = primeNumbers[j];
-
-                    //Console.WriteLine($"{p} * {q} = " + p * q);
-                    if (p * q == kn)
+                    if (p * q == kn && check[q])
                     {
                         int phi_n = (p - 1) * (q - 1);
+
                         if (Helper.UCLN(ke, phi_n) == 1)
                         {
                             int d = Helper.Euclid(ke, phi_n);
-                            listD.Add(d);
+
+                            return d == kd;
                         }
                     }
                 }
-            }
-
-            if (listD.Contains(kd))
-            {
-                return true;
             }
 
             return false;

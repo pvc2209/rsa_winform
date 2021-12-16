@@ -11,59 +11,93 @@ namespace CacHamCoBan
     {
         static void Main(string[] args)
         {
-            Console.OutputEncoding = Encoding.UTF8;
-            /*
-            var personA = new RSA();
 
-            // ===========Z26===========
-            personA.TaoKhoaZ26();
-            Console.WriteLine("e (A) = " + personA.MyE);
-            Console.WriteLine("n (A) = " + personA.MyN);
-            Console.WriteLine("d (A) = " + personA.MyD);
+            //Console.OutputEncoding = Encoding.UTF8;
+            ///*
+            //var personA = new RSA();
 
-            var personB = new RSA();
-            personB.setEN(personA.MyE, personA.MyN);
+            //// ===========Z26===========
+            //personA.TaoKhoaZ26();
+            //Console.WriteLine("e (A) = " + personA.MyE);
+            //Console.WriteLine("n (A) = " + personA.MyN);
+            //Console.WriteLine("d (A) = " + personA.MyD);
 
-            //// B mã hóa bản rõ x = 99 "của B" với khóa (e, n) của A
-            //int thongDiepTuBGuiToiA = personB.EncodeNumber(99);
-            //Console.WriteLine(thongDiepTuBGuiToiA);
+            //var personB = new RSA();
+            //personB.setEN(personA.MyE, personA.MyN);
 
-            //// A giải mã bản mã y = ... do B gửi tới
-            //Console.WriteLine(personA.DecodeNumber(thongDiepTuBGuiToiA));
+            ////// B mã hóa bản rõ x = 99 "của B" với khóa (e, n) của A
+            ////int thongDiepTuBGuiToiA = personB.EncodeNumber(99);
+            ////Console.WriteLine(thongDiepTuBGuiToiA);
 
-            Console.WriteLine(personB.EncodeNumber(99));
-            Console.WriteLine("-------------------------------------");
+            ////// A giải mã bản mã y = ... do B gửi tới
+            ////Console.WriteLine(personA.DecodeNumber(thongDiepTuBGuiToiA));
+
+            //Console.WriteLine(personB.EncodeNumber(99));
+            //Console.WriteLine("-------------------------------------");
+
+            //string y = personB.EncodeZ26("phamcuong");
+            //Console.WriteLine("y = " + y);
+
+            //Console.WriteLine("x = " + personA.DecodeZ26(y));
+            //*/
+
+            //// ===========Unicode===========
+            //var personA = new RSA();
+
+            //personA.TaoKhoaUnicode();
+            //Console.WriteLine("e (A) = " + personA.MyE);
+            //Console.WriteLine("n (A) = " + personA.MyN);
+            //Console.WriteLine("d (A) = " + personA.MyD);
+
+            //var personB = new RSA();
+            //personB.setEN(personA.MyE, personA.MyN);
+
+            //Console.WriteLine("-------------------------------------");
+
+            //string y = personB.EncodeUnicode("phạm cường");
+            //Console.WriteLine("y = " + y);
+
+            //Console.WriteLine("x = " + personA.DecodeUnicode(y));
+
+            //// Đúng là UNICODE_LENGTH = 65536 vì nếu thử convert 65536 ToChar
+            //// sẽ bị lỗi System.OverflowException: Value was either too large or too small for a character.
+            //// còn giảm lại 1 giá trị là 65535 là convert được luôn
+            //// Console.WriteLine(Convert.ToChar(65536));
+
+            ////Console.WriteLine((int)'ỹ');
+
+
+            ////Console.WriteLine( Hacker.ThamMa(32925, 585223).Item1);
+
+            int n = 1000000;
+
+            bool[] check = Helper.SangNguyenTo(n);
             
-            string y = personB.EncodeZ26("phamcuong");
-            Console.WriteLine("y = " + y);
+            for (int i = 1; i <= n; ++i)
+            {
+                int count = 0;
 
-            Console.WriteLine("x = " + personA.DecodeZ26(y));
-            */
+                int start = (int)Math.Sqrt(i);
 
-            // ===========Unicode===========
-            var personA = new RSA();
+                for (int p = start; p >= 2; p--)
+                {
+                    if (check[p])
+                    {
+                        int q = i / p;
 
-            personA.TaoKhoaUnicode();
-            Console.WriteLine("e (A) = " + personA.MyE);
-            Console.WriteLine("n (A) = " + personA.MyN);
-            Console.WriteLine("d (A) = " + personA.MyD);
+                        if (p * q == i && check[q])
+                        {
+                            ++count;
+                            //Console.WriteLine($"n = {i}, p = {p}, q = {q}");
+                        }
+                    }
+                }
 
-            var personB = new RSA();
-            personB.setEN(personA.MyE, personA.MyN);
-
-            Console.WriteLine("-------------------------------------");
-
-            string y = personB.EncodeUnicode("phạm cường");
-            Console.WriteLine("y = " + y);
-
-            Console.WriteLine("x = " + personA.DecodeUnicode(y));
-
-            // Đúng là UNICODE_LENGTH = 65536 vì nếu thử convert 65536 ToChar
-            // sẽ bị lỗi System.OverflowException: Value was either too large or too small for a character.
-            // còn giảm lại 1 giá trị là 65535 là convert được luôn
-            // Console.WriteLine(Convert.ToChar(65536));
-
-            //Console.WriteLine((int)'ỹ');
+                if (count > 1)
+                {
+                    Console.WriteLine(i);
+                }
+            }
         }
 
         private void TimKyTuLonNhat()

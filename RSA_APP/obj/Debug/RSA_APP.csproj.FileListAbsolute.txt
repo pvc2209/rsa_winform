@@ -9,3 +9,4 @@ D:\ICTU\ky7\An toan va bao mat thong tin\RSA\RSA_APP\obj\Debug\RSA_APP.csproj.Co
 D:\ICTU\ky7\An toan va bao mat thong tin\RSA\RSA_APP\obj\Debug\RSA_APP.exe
 D:\ICTU\ky7\An toan va bao mat thong tin\RSA\RSA_APP\obj\Debug\RSA_APP.pdb
 D:\ICTU\ky7\An toan va bao mat thong tin\RSA\RSA_APP\obj\Debug\RSA_APP.RSAFORM.resources
+D:\ICTU\ky7\An toan va bao mat thong tin\RSA\RSA_APP\obj\Debug\RSA_APP.Form2.resources

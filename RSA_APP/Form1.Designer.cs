@@ -69,6 +69,7 @@
             this.rdUnicode = new System.Windows.Forms.RadioButton();
             this.btnKiemTraKhoaA = new System.Windows.Forms.Button();
             this.btnKiemTraKhoaB = new System.Windows.Forms.Button();
+            this.btnThamMa = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -516,11 +517,22 @@
             this.btnKiemTraKhoaB.UseVisualStyleBackColor = true;
             this.btnKiemTraKhoaB.Click += new System.EventHandler(this.btnKiemTraKhoaB_Click);
             // 
+            // btnThamMa
+            // 
+            this.btnThamMa.Location = new System.Drawing.Point(894, 27);
+            this.btnThamMa.Name = "btnThamMa";
+            this.btnThamMa.Size = new System.Drawing.Size(75, 23);
+            this.btnThamMa.TabIndex = 15;
+            this.btnThamMa.Text = "Thám Mã";
+            this.btnThamMa.UseVisualStyleBackColor = true;
+            this.btnThamMa.Click += new System.EventHandler(this.button1_Click);
+            // 
             // RSAFORM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(989, 727);
+            this.Controls.Add(this.btnThamMa);
             this.Controls.Add(this.btnKiemTraKhoaB);
             this.Controls.Add(this.btnKiemTraKhoaA);
             this.Controls.Add(this.rdUnicode);
@@ -615,6 +627,7 @@
         private System.Windows.Forms.RadioButton rdUnicode;
         private System.Windows.Forms.Button btnKiemTraKhoaA;
         private System.Windows.Forms.Button btnKiemTraKhoaB;
+        private System.Windows.Forms.Button btnThamMa;
     }
 }
 

@@ -475,5 +475,11 @@ namespace RSA_APP
         {
             ResetAll();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form2 thamMaForm = new Form2();
+            thamMaForm.Show();
+        }
     }
 }

@@ -119,5 +119,31 @@ namespace RSA_APP
         {
             return (int)c;
         }
+
+        public static bool[] SangNguyenTo(int n)
+        {
+            // 1 List để biết số nào là số nguyên tố từ 2 đến n
+            // Mặc định tất cả các số đều là số nguyên tố
+            bool[] check = Enumerable.Repeat<bool>(true, n + 1).ToArray();
+
+            // số 0 và 1 ko phải là số nguyên tố
+            check[0] = false;
+            check[1] = false;
+
+            // Thuật toán sàng nguyên tố
+            for (int i = 2; i <= n; ++i)
+            {
+                if (check[i] == true)
+                {
+                    for (int j = 2 * i; j <= n; j += i)
+                    {
+                        check[j] = false;
+                    }
+                }
+            }
+
+
+            return check;
+        }
     }
 }
